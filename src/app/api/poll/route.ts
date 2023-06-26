@@ -8,7 +8,7 @@ export async function POST(req: Request) {
   /**
    * {
    *    title: 'string',
-   *    votedId: string
+   *    options: ['string', 'string', 'string']
    * }
    */
 
