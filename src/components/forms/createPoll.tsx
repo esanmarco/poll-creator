@@ -2,6 +2,7 @@
 
 import { Input } from "@/components/ui/input";
 import { z } from "zod";
+import { Button } from "../ui/button";
 
 const pollSchema = z.object({
   title: z.string().min(1),
@@ -10,7 +11,7 @@ const pollSchema = z.object({
 
 export type Poll = z.infer<typeof pollSchema>;
 
-export default function AddPoll() {
+export default function CreatePoll() {
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     const formData = new FormData(e.target as HTMLFormElement);
@@ -37,12 +38,14 @@ export default function AddPoll() {
       <Input type="text" placeholder="Option 1" />
       <Input type="text" placeholder="Option 2" />
 
-      <input
+      <Button
+        variant="outline"
+        color="secondary"
+        className="w-fit"
         disabled={!pollSchema.safeParse({ title: "", options: [] }).success}
-        type="submit"
-        className="rounded bg-green-600 p-2 active:scale-105 hover:bg-blue-500"
-        value="Create Poll"
-      />
+      >
+        Create Poll
+      </Button>
     </form>
   );
 }

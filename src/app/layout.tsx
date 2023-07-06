@@ -1,6 +1,7 @@
-import "./globals.css";
+import "@/styles/globals.css";
+import { ThemeProvider } from "@/components/theme/provider";
 import { Inter } from "next/font/google";
-import GlobalLayout from "@/components/global-layout";
+import Navigation from "@/components/navigation";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -16,10 +17,11 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={`${inter.className} prose max-w-none w-full`}>
-        <GlobalLayout>
-          <div className="p-4">{children}</div>
-        </GlobalLayout>
+      <body className={inter.className}>
+        <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
+          <Navigation />
+          <div className="flex-1">{children}</div>
+        </ThemeProvider>
       </body>
     </html>
   );
