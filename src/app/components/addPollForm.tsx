@@ -16,17 +16,20 @@ export default function AddPoll() {
     const formData = new FormData(e.target as HTMLFormElement);
     const data = Object.fromEntries(formData.entries());
 
-    const res = await fetch(`http//localhost:3000/api/polls`, {
-      method: "POST",
-      body: JSON.stringify(data),
-    });
+    // const res = await fetch(
+    //   `${process.env.NEXT_PUBLIC_BASE_API_URL}/api/polls`,
+    //   {
+    //     method: "POST",
+    //     body: JSON.stringify(data),
+    //   }
+    // );
 
-    if (!res.ok) {
-      throw new Error("Something went wrong");
-    }
+    // if (!res.ok) {
+    //   throw new Error("Something went wrong");
+    // }
 
-    const poll = await res.json();
-    console.log(poll);
+    // const poll = await res.json();
+    // console.log(poll);
   };
 
   return (
@@ -40,7 +43,7 @@ export default function AddPoll() {
       <input
         disabled={!pollSchema.safeParse({ title: "", options: [] }).success}
         type="submit"
-        className="rounded bg-green-600 p-2 active:scale-105 hover:bg-blue-500"
+        className="p-2 bg-green-600 rounded active:scale-105 hover:bg-blue-500"
         value="Create Poll"
       />
     </form>

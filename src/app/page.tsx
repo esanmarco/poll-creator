@@ -3,8 +3,8 @@ import AddPoll from "./components/addPollForm";
 export default function Home() {
   return (
     <div className="flex flex-col items-center justify-center min-h-screen py-2">
-      <div className="shadow bg-gray-600 p-8 rounded">
-        <h1 className="text-4xl font-bold text-center text-gray-100 mb-4">
+      <div className="p-8 bg-gray-600 rounded shadow">
+        <h1 className="mb-4 text-4xl font-bold text-center text-gray-100">
           Create a new Poll
         </h1>
 
